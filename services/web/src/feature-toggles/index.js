@@ -17,6 +17,7 @@ const setFeatureTogglesStore = (configValues) => Object.keys(FEATURE_TOGGLES).fo
 
 export const initFeatureToggles = async () => {
     const remoteConfig = window.firebase.remoteConfig();
+ 
     await remoteConfig.fetchAndActivate();
 
     setFeatureTogglesStore(remoteConfig.getAll());

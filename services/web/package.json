@@ -2,7 +2,7 @@
   "name": "cloud-native-web-development",
   "description": "cloud-native-web-development",
   "version": "0.0.1",
-  "scripts": {    
+  "scripts": {
     "build": "sapper build --legacy",
     "export": "sapper export ./firebase/public --legacy",
     "start": "node __sapper__/build",

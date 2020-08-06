@@ -4,6 +4,6 @@
 </script>
 
 
-{#if $featureTogglesStore[name]
+{#if $featureTogglesStore[name]}
   <slot />
 {/if}
