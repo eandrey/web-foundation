@@ -1,6 +1,7 @@
 {
-	"baseUrl": "http://localhost:3000",
-	"componentFolder": "cypress/components", 
-	"experimentalComponentTesting": true,
-	"video": false
+  "baseUrl": "http://localhost:3000",
+  "componentFolder": "cypress/components",
+  "experimentalComponentTesting": true	,
+  "video": true,
+  "projectId": "9kuugd"
 }
