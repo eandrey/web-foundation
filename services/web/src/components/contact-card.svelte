@@ -1,7 +1,7 @@
 <script>
   export let data
-  export let src
-  const { name, job, email, phone} = data
+
+  const { name,src, job, email, phone} = data
  
 </script>
 
