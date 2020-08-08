@@ -35,7 +35,7 @@ describe('Blog posts', () => {
 	posts.forEach(post => {
 		it(`lists the "${post.title}" blog post`, () => {
 			cy
-				.contains('[data-cy=blog-posts-list] li a', post.title).should('have.attr', 'href', `blog/${post.slug}`)
+				.contains('[c-data-cy=blog-posts-list] li a', post.title).should('have.attr', 'href', `blog/${post.slug}`)
 		})
 	});
 });
