@@ -7,11 +7,6 @@ jobs:
   test:
     runs-on: ubuntu-latest 
     steps:
-      - uses: actions/checkout@v2 
-      - name: Install dependencies
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
       - name: Instal dependencies
         run: npm install
@@ -19,6 +14,22 @@ jobs:
         run: npm run bootstrap
       - name: Run e2e tests
         uses: cypress-io/github-action@v1
+        with: 
+          install: false
+          record: true
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          working-directory: services/web
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }} 
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_ENV: test
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master' 
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy the web service
         run: npm run deploy --prefix services/web
         env:
