@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "sapper build --legacy",
-    "export": "sapper export ./firebase/public --legacy",
+    "export": "NODE_ENV=production sapper export ./firebase/public --legacy",
     "start": "node __sapper__/build",
     "cy:run": "NODE_ENV=test cypress run --record --key 7fb1f8e3-13da-4598-9ee1-c5b07fc6ac32",
     "cy:open": "NODE_ENV=test cypress open",
@@ -37,10 +37,13 @@
     "cypress": "^4.12.1",
     "cypress-svelte-unit-test": "^3.3.1",
     "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.32",
     "rollup": "^2.23.0",
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^5.3.0",
     "sapper": "^0.27.0",
-    "svelte": "^3.0.0"
+    "svelte": "^3.0.0",
+    "svelte-preprocess": "^4.0.10",
+    "tailwindcss": "^1.6.2"
   }
 }
