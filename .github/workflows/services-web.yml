@@ -1,11 +1,14 @@
-name: Deploy the web service
+name: CI for the web service
 on:
   push:
-    branches:
-      - master
     paths:
       - 'services/web/**'
 jobs:
+  test:
+    runs-on: ubuntu-latest 
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Install dependencies
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -14,6 +17,8 @@ jobs:
         run: npm install
       - name: Bootstrap all service
         run: npm run bootstrap
+      - name: Run e2e tests
+        uses: cypress-io/github-action@v1
       - name: Deploy the web service
         run: npm run deploy --prefix services/web
         env:
