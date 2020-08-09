@@ -1,3 +1,4 @@
+
 <style>
   .disabled {
     @apply opacity-50 cursor-not-allowed;
@@ -10,6 +11,7 @@
 
 <span class="inline-flex rounded-md shadow-sm">
   <button
+    on:click
     {...$$props}
     type="button"
     class="inline-flex item-center px-4 py-2 border border-transparent text-sm

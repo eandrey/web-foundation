@@ -4,7 +4,17 @@
 
   let title;
   let content;
-
+  function publish() {
+      const slug = title.replace(/\s/g, "-").toLowerCase();
+      window.db.collection('posts').doc(slug).set({
+          title,
+          content,
+      }).then(() => {
+          console.log('Success')
+      }).catch((err) => {
+          console.log('Error', err)
+      })
+  }
   $: isPublishedDisabled = !(title && content);
 </script>
 
@@ -16,18 +26,18 @@
       label="Title"
       id="title"
       placeholder="Untitled"
-      errorMessage = "Please provide a title"
-      hasError = {!title}
+      errorMessage="Please provide a title"
+      hasError={!title}
       bind:value={title} />
     <InputGroup
       elementType="textarea"
       label="Content"
       id="content"
       placeholder="Your content ..."
-      errorMessage = "Please provide a content"
-      hasError = {!content}
+      errorMessage="Please provide a content"
+      hasError={!content}
       bind:value={content} />
-      <Button disabled={isPublishedDisabled}>Publish</Button>
+    <Button on:click={publish} disabled={isPublishedDisabled}>Publish</Button>
 
   </form>
 </div>
