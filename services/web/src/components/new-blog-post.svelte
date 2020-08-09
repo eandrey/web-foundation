@@ -16,12 +16,16 @@
       label="Title"
       id="title"
       placeholder="Untitled"
+      errorMessage = "Please provide a title"
+      hasError = {!title}
       bind:value={title} />
     <InputGroup
       elementType="textarea"
       label="Content"
       id="content"
       placeholder="Your content ..."
+      errorMessage = "Please provide a content"
+      hasError = {!content}
       bind:value={content} />
       <Button disabled={isPublishedDisabled}>Publish</Button>
 
