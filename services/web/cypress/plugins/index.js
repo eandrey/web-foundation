@@ -11,10 +11,13 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-const rollupPreprocessor = require("@bahmutov/cy-rollup"); 
+const rollupPreprocessor = require("@bahmutov/cy-rollup");
+const firestoreTasks = require('./firestore')
+
 
 module.exports = (on, config) => {
   on("file:preprocessor", rollupPreprocessor({
     configFile: "cypress/rollup.config.js",
   }));
+  on("task", firestoreTasks)
 };
