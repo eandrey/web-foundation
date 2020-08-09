@@ -17,10 +17,8 @@
 </script>
 
 <script>
-  export let posts;
-  console.log(`posts
-	${posts}
-  `);
+  export let posts = [];
+  
 </script>
 
 <style>
@@ -37,9 +35,6 @@
 <h1>Recent posts</h1>
 
 <ul data-cy="blog-posts-list">
-{#if posts}
-	 <!-- content here -->
-
   {#each posts as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to
 				tell Sapper to load the data for the page as soon as
@@ -49,5 +44,4 @@
       <a rel="prefetch" href="blog/{post.slug}">{post.title}</a>
     </li>
   {/each}
-{/if}
 </ul>
