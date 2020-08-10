@@ -47,7 +47,7 @@
 		var firebaseAuthUi = new firebaseui.auth.AuthUI(firebase.auth()); 
 		var db = firebase.firestore();
 		if(location.hostname === "localhost"){
-			db.settings.({
+			db.settings({
 				host: "localhost:8080",
 				ssl: false
 			})
