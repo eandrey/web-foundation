@@ -8,7 +8,7 @@
     "firebase:login": "firebase login",
     "dev": "npm run build --prefix functions && firebase emulators:start",
     "postinstall": "npm install --prefix functions",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy --only hosting,firestore"
   },
   "author": "",
   "license": "ISC",
