@@ -44,4 +44,7 @@
       <a rel="prefetch" href="blog/{post.slug}">{post.title}</a>
     </li>
   {/each}
+   <!-- <li>
+      <a rel="prefetch" href="blog/test-post">Test post</a>
+    </li> -->
 </ul>
