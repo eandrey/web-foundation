@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "firebase:login": "firebase login",
-    "dev": "firebase emulators:start",
-    "deploy": "firebase deploy"
+    "dev": "npm run build --prefix functions && firebase emulators:start",
+    "postinstall": "npm install --prefix functions",
+    "deploy": "firebase deploy --only hosting,firestore"
   },
   "author": "",
   "license": "ISC",

@@ -6,20 +6,19 @@
         .doc(params.slug)
         .get();
       if (doc.exists) {
-		  return {post: doc.data()}
-      }else{
-		  this.error(404, "post not found")
-	  }
+        return { post: doc.data() };
+      } else {
+        this.error(404, "post not found");
+      }
     }
   }
 </script>
 
 <script>
+  import marked from "marked";
   export let post;
 </script>
-<svelte:head>
-	<title>{post ? post.title : ''}</title>
-</svelte:head>
+
 <style>
   /*
 		By default, CSS is locally scoped to the component,
@@ -56,12 +55,15 @@
   }
 </style>
 
+<svelte:head>
+  <title>{post ? post.title : ''}</title>
+</svelte:head>
 {#if post}
-<h1>{post.title}</h1>
+  <h1>{post.title}</h1>
 
-<div class="content">
-  {post.content}
-</div>
+  <div class="content">
+    {@html marked(post.content)}
+  </div>
 {:else}
-	<p>Loading blog post...</p>
+  <p>Loading blog post...</p>
 {/if}
